@@ -17814,7 +17814,7 @@ var i2 = Symbol(),
     },
   }),
   vv = hv(gv(), s2());
-const o2 = "https://vite-build-bigby-s.vercel.app/",
+const o2 = "http://localhost:5000/",
   di = vv({
     reducerPath: "productsApi",
     baseQuery: lv({ baseUrl: o2, credentials: "include" }),
@@ -18024,7 +18024,7 @@ function N2({
         u.jsx("img", {
           onClick: () => g("/"),
           src: Rd,
-          className: "h-6 cursor-pointer",
+          className: "h-5 cursor-pointer",
           alt: "",
         }),
         u.jsxs("div", {
@@ -22395,12 +22395,12 @@ function MN() {
     children: [
       u.jsxs("div", {
         className:
-          "flex flex-col gap-12 mt-20 mb-5 text-sm sm:gap-32 sm:flex-row outfit",
+          "flex flex-col gap-12 mt-6 mb-5 text-sm sm:gap-32 sm:flex-row outfit",
         children: [
           u.jsxs("div", {
             className: "flex flex-col gap-6 ",
             children: [
-              u.jsx("img", { src: Rd, className: "h-7 w-36", alt: "" }),
+              u.jsx("img", { src: Rd, className: "w-32 h-5", alt: "" }),
               u.jsx("p", {
                 className: "opacity-85",
                 children:
@@ -26366,7 +26366,7 @@ function i_() {
                                 ", ",
                                 s.country,
                                 ", ",
-                                s.zipcode,
+                                s.email,
                               ],
                             }),
                           ],
@@ -26632,7 +26632,9 @@ function o_() {
                                 className:
                                   "flex items-center gap-3 mt-1 text-base text-gray-700",
                                 children: [
-                                  u.jsxs("p", { children: ["$", i.price] }),
+                                  u.jsxs("p", {
+                                    children: ["$", i.price * i.quantity],
+                                  }),
                                   u.jsxs("p", {
                                     children: ["Quantity: ", i.quantity],
                                   }),
@@ -26753,6 +26755,7 @@ function a_() {
               size: t.size,
               imgUrl: t.imgUrl,
               quantity: t.quantity,
+              total: t.price * t.quantity + 10,
             })),
           c(),
           i("/orders");
