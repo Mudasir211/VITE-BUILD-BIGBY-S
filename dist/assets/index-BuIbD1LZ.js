@@ -17814,7 +17814,7 @@ var i2 = Symbol(),
     },
   }),
   vv = hv(gv(), s2());
-const o2 = "http://localhost:5000/",
+const o2 = "https://vite-build-bigby-s.vercel.app/",
   di = vv({
     reducerPath: "productsApi",
     baseQuery: lv({ baseUrl: o2, credentials: "include" }),
