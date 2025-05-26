@@ -25666,6 +25666,7 @@ function YT() {
               children: [
                 u.jsx("p", {
                   className: "cursor-pointer ",
+                  onClick: () => g("/forgot-password"),
                   children: "Forgot your password?",
                 }),
                 u.jsx("p", {
@@ -27237,15 +27238,15 @@ function d_() {
 }
 function p_() {
   const e = On(),
-    [t, r] = E.useState(!1);
+    { data: t, isSuccess: r, isError: n, refetch: i } = Di(),
+    [s, o] = E.useState(!1);
   E.useEffect(() => {
-    r(!1);
+    o(!1), i();
   }, [e.pathname]);
-  const { data: n, isSuccess: i, isError: s } = Di(),
-    o = ["/AdminLogin", "/AdminPanel"].includes(e.pathname),
-    [a, l] = E.useState(!1);
+  const a = ["/AdminLogin", "/AdminPanel"].includes(e.pathname),
+    [l, c] = E.useState(!1);
   return u.jsxs("div", {
-    className: ` ${o ? "p-0" : "px-5 sm:px-12  md:px-16 lg:px-28"}`,
+    className: ` ${a ? "p-0" : "px-5 sm:px-12  md:px-16 lg:px-28"}`,
     children: [
       u.jsx(d_, {}),
       u.jsx(yT, {
@@ -27260,26 +27261,26 @@ function p_() {
         pauseOnHover: !1,
         theme: "light",
       }),
-      !o &&
+      !a &&
         u.jsx(N2, {
-          showDropdown: t,
-          setShowDropdown: r,
-          showForm: a,
-          setShowForm: l,
+          showDropdown: s,
+          setShowDropdown: o,
+          showForm: l,
+          setShowForm: c,
         }),
       u.jsxs(jC, {
         children: [
           u.jsx(Ve, {
             path: "/Collection",
-            element: u.jsx(zT, { showForm: a, setShowForm: l }),
+            element: u.jsx(zT, { showForm: l, setShowForm: c }),
           }),
           u.jsx(Ve, { path: "/", element: u.jsx(IN, {}) }),
           u.jsx(Ve, { path: "/product/:productId", element: u.jsx(MT, {}) }),
           u.jsx(Ve, { path: "About", element: u.jsx(UT, {}) }),
           u.jsx(Ve, { path: "/Contact", element: u.jsx(BT, {}) }),
           u.jsx(Ve, { path: "/Cart", element: u.jsx(FT, {}) }),
-          s && u.jsx(Ve, { path: "/Login", element: u.jsx(qT, {}) }),
-          s && u.jsx(Ve, { path: "/Signin", element: u.jsx(YT, {}) }),
+          n && u.jsx(Ve, { path: "/Login", element: u.jsx(qT, {}) }),
+          n && u.jsx(Ve, { path: "/Signin", element: u.jsx(YT, {}) }),
           u.jsx(Ve, { path: "/AdminPanel", element: u.jsx(s_, {}) }),
           u.jsx(Ve, { path: "/AdminPanel/add", element: u.jsx(zf, {}) }),
           u.jsx(Ve, { path: "/orders", element: u.jsx(o_, {}) }),
@@ -27288,7 +27289,7 @@ function p_() {
           u.jsx(Ve, { path: "/reset-password/:token", element: u.jsx(f_, {}) }),
         ],
       }),
-      !o && u.jsx(MN, {}),
+      !a && u.jsx(MN, {}),
     ],
   });
 }
