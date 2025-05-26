@@ -352,7 +352,7 @@ router.post("/forgot-password", async (req, res) => {
   const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, {
     expiresIn: "15m",
   });
-  const link = `${process.env.CLIENT_URL}/reset-password/${token}`;
+  const link = `https://vite-build-bigby-s.vercel.app/reset-password/${token}`;
 
   await sendEmail({
     to: email,
